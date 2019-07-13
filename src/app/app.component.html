@@ -7,7 +7,24 @@
         Welcome to {{ title }}!
     </h1>
 </div>
-<div border="1">
+<h3>Using ngIf</h3>
+<div>
+    <input type="radio" name="rad1" (click)="changeable(true)"> True
+    <input type="radio" name="rad1" (click)="changeable(false)"> False
+</div>
+<div *ngIf="isValid">
+    <p>Data is Valid</p>
+</div>
+<div *ngIf="!isValid">
+    <p>Data is Not Valid</p>
+</div>
+<div *ngIf="stud1">
+    ID: {{stud1.id}}, Name: {{stud1.name}}
+</div>
+<div *ngIf="stud2">
+    ID: {{stud2.id}}, Name: {{stud2.name}}
+</div>
+<div>
     <app-child></app-child>
 </div>
 
