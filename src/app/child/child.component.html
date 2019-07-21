@@ -13,3 +13,11 @@
         Loading...
     </div>
 </div> -->
+<div *ngIf="chlidMonthEnum.Mar > 1">
+    {{chlidMonthEnum.Mar}} is a grater than 1
+</div>
+<ng-template [ngIf]="chlidMonthEnum.Mar > 1">
+    Hello Dosto...!
+</ng-template>
+
+

@@ -7,71 +7,35 @@
         Welcome to {{ title }}!
     </h1>
 </div>
-<h3>Using ngIf</h3>
 
-<div>
-    <input type="radio" name="rad1" (click)="changeable(true)"> True
-    <input type="radio" name="rad1" (click)="changeable(false)"> False
-</div>
-<div *ngIf="isValid">
-    <p>Data is Valid</p>
-</div>
-<div *ngIf="!isValid">
-    <p>Data is Not Valid</p>
-</div><br>
-<div *ngIf="mynunEnum.two > 1">
-    Enum Example: {{mynunEnum.two}} is greater than 1.
-</div><br>
-<div *ngIf="stud1">
-    ID: {{stud1.id}}, Name: {{stud1.name}}
-</div>
-<div *ngIf="stud2">
-    ID: {{stud2.id}}, Name: {{stud2.name}}
-</div><br>
-<p><strong>ng-template</strong></p>
-<!-- <ng-template [ngIf]="true">
-    Hi, I am Jon.!
-</ng-template> -->
-<input type="radio" name="rad" (click)="change(true)"> Male
-<input type="radio" name="rad" (click)="change(false)"> Female <br>
-<div *ngIf="isValid; then male else female">
-    Please select one of the above.
-</div>
-<ng-template #male>
-    Your are Male.
-</ng-template>
-<ng-template #female>
-    Your are Female.
-</ng-template>
-
-<ng-template [ngIf]="isValid" [ngIfThen]="thenblock" [ngIfElse]="elseblock"></ng-template>
-<ng-template #thenblock>
-    Your are Male. (thenblock)
-</ng-template>
-<ng-template #elseblock>
-    Your are Female. (elseblock)
-</ng-template>
-
-<!-- <h3>ngIf with Async Pipe</h3> -->
-<!-- A<div *ngIf="promiseMsg | async as message; else loading">
+<div *ngIf="msg | async as message; else loading">
     {{message}}
 </div>
-<ng-template #loading>Loading....</ng-template> -->
+<ng-template #loading>
+    Loading...
+</ng-template>
 
-<h3>Dynamic Then and Else Block</h3>
-Enter Age: <input type="text" #age (keyup)="0">
-<input type="button" value="Change Then block" (click)="changeThenBlock()">
-<input type="button" value="Change Else block" (click)="changeElseBlock()">
-<div *ngIf="age.value > 17; then mythenBlock; else myelseBlock"></div>
-<ng-template #firstthenBlock>I am First Then Block</ng-template>
-<ng-template #secondthenBlock>I am Second Then Block</ng-template>
-<ng-template #firstelseBlock>I am First Else Block</ng-template>
-<ng-template #secondelseBlock>I am Second Else Block</ng-template>
+<h2>Dynamic Then and Else Block</h2>
+
+Enter age: <input type="text" #age (keyup)="0">
+<input type="button" value="Change Then Block" (click)="changeThanblock()">
+<input type="button" value="Change Else Block" (click)="changeElseblock()">
+<div *ngIf="age.value > 17; then myThenBlock; else myElseBlock"></div>
+<ng-template #firstthenblock>
+    Hi, I am 18+.
+</ng-template>
+<ng-template #secondthenblock>
+    Hi, I am 20 Years Old.
+</ng-template>
+<ng-template #firstelseblock>
+    Hi, I am below 18.
+</ng-template>
+<ng-template #secondelseblock>
+    Hi, I am just 12 years old.
+</ng-template>
 
 
-<div>
+<!-- <div>
     <app-child></app-child>
-</div>
-
-
+</div> -->
 <router-outlet></router-outlet>

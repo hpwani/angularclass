@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Childenum } from './childenum'
 
 @Component({
   selector: 'app-child',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
   city = 'Pune';
+  chlidMonthEnum = Childenum;
   students = {
     name: 'Raj',
     age: 25

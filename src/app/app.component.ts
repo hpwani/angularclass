@@ -1,54 +1,49 @@
+import { MessageService } from './message.service';
 import { NumEnum } from './num-enum';
 import { Student } from './student';
 import { Component, TemplateRef, ViewChild } from '@angular/core';
-import { MessageService } from './message.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  preserveWhitespaces: true
 })
 export class AppComponent {
   title = 'Angular Class';
-  mynunEnum = NumEnum;
-//  promiseMsg: Promise<string>;
-  // tslint:disable-next-line:no-inferrable-types
-  isValid: boolean = true;
-  stud1 = new Student(100, 'Raj');
-  stud2 = new Student(101, 'Kunal');
-  mythenBlock: TemplateRef<any> = null;
-  myelseBlock: TemplateRef<any> = null;
+  // msg: Promise<string>;
+  // constructor(private message: MessageService) {}
+  // ngOnInit() {
+  //   this.msg = this.message.getMessage();
+  // }
 
-  // constructor(private messageService: MessageService) {}
+  myThenBlock: TemplateRef<any> = null;
+  myElseBlock: TemplateRef<any> = null;
 
-  @ViewChild('firstthenBlock')
-  firstthenBlock: TemplateRef<any> = null;
-  @ViewChild('secondthenBlock')
-  secondthenBlock: TemplateRef<any> = null;
-  @ViewChild('firstelseBlock')
-  firstelseBlock: TemplateRef<any> = null;
-  @ViewChild('secondelseBlock')
-  secondelseBlock: TemplateRef<any> = null;
+  @ViewChild('firstthenblock')
+  firstthenblock: TemplateRef<any> = null;
 
-  // tslint:disable-next-line:use-life-cycle-interface
+  @ViewChild('secondthenblock')
+  secondthenblock: TemplateRef<any> = null;
+
+  @ViewChild('firstelseblock')
+  firstelseblock: TemplateRef<any> = null;
+
+  @ViewChild('secondelseblock')
+  secondelseblock: TemplateRef<any> = null;
+
   ngOnInit() {
-  //  this.promiseMsg = this.messageService.getMessage();
-
-    this.mythenBlock = this.firstthenBlock;
-    this.myelseBlock = this.firstelseBlock;
+    this.myThenBlock = this.firstthenblock;
+    this.myElseBlock = this.firstelseblock;
   }
 
-  changeThenBlock() {
-    this.mythenBlock = this.firstthenBlock === this.firstthenBlock ? this.secondthenBlock : this.firstthenBlock;
-  }
-  changeElseBlock() {
-    this.myelseBlock = this.firstelseBlock === this.firstelseBlock ? this.secondelseBlock : this.firstelseBlock;
+  changeThanblock() {
+    this.myThenBlock = this.myThenBlock === this.firstthenblock ? this.secondthenblock : this.firstthenblock;
   }
 
-  changeable(value: boolean) {
-    this.isValid = value;
+  changeElseblock() {
+    this.myElseBlock = this.myElseBlock === this.firstelseblock ? this.secondelseblock : this.firstelseblock;
   }
-  change(value: boolean) {
-    this.isValid = value;
-  }
+
 }
