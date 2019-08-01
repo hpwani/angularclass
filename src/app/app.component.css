@@ -3,3 +3,21 @@ marquee {
     padding: 10px 0;
     background-color: lightblue;
 }
+
+.colorCls {
+    color: rgb(255, 187, 0);
+}
+
+.sizeCls {
+    font-size: 20px;
+}
+
+.styleCls {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.titleClrCls {
+    color: red;
+}
