@@ -8,9 +8,13 @@ export class MessageService {
 
   constructor() { }
   getMessage(): Promise<string> {
-    let message = 'Hello Guys';
+    const message = 'Hello Guys';
     return new Promise(resolve => {
       setTimeout(() => resolve(message), 3000);
     });
+  }
+
+  getMsg() {
+    return 'Service Injected..!';
   }
 }

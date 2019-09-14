@@ -12,67 +12,23 @@ import { Component, TemplateRef, ViewChild } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular Class';
-  country = 'India';
-  colSpanValue = '3';
-  isbold: true;
-  varsize = 40;
-  applyMultiCls = "colorCls";
-  spanCls = "titleClrCls sizeCls";
-  isTrue: boolean = true;
-  isFalse: boolean = false;
-  isDisabled: boolean = true;
-  isShow: boolean = true;
-  msg: string;
+  emp = {
+    name: 'Ram', age: 25
+  };
+  num = 146.51;
+  cityName = 'Pune';
+  currentDate = new Date();
+  public now: Date = new Date();
   // msg: Promise<string>;
-  // constructor(private message: MessageService) {}
+  constructor(private message: MessageService) {
+    setInterval(() => {
+      this.now = new Date();
+    }, 1);
+  }
   // ngOnInit() {
   //   this.msg = this.message.getMessage();
   // }
 
-  addStyle() {
-    let varcss = {
-      'font-weight' : this.isbold ? 'bold' : 'normal',
-      'font-style' : 'italic',
-      'font-size.px' : this.varsize
-    }
-    return varcss;
-  }
-
-  applycss() {
-    let clscss = {
-      titleClrCls: this.isTrue,
-    }
-    return clscss;
-  }
-
-  applyspancss() {
-    let clscss = {
-      colorCls: this.isTrue,
-      styleCls: this.isTrue,
-      sizeCls: this.isTrue,
-    }
-    return clscss;
-  }
-
-  clickMe() {
-    this.isDisabled =! this.isDisabled;
-  }
-
-  clk() {
-    this.isShow =! this.isShow;
-  }
-
-  setMsg(data: string) {
-    this.msg = data;
-  }
-
-
-  Allperson = [
-    {id: 101, name: 'Ram'},
-    {id: 102, name: 'Krishna'},
-    {id: 103, name: 'Ketki'},
-    {id: 104, name: 'Ravi'}
-  ];
 
   myThenBlock: TemplateRef<any> = null;
   myElseBlock: TemplateRef<any> = null;

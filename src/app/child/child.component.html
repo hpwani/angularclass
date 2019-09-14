@@ -1,21 +1,11 @@
 <!DOCTYPE html>
-<div>
-    <h2>Child Component</h2>
-    <p>Name: {{students && students.name}}<br/> Age: {{students && students.age}}</p>
-    <p>City: {{city}}</p>
-    <p><button (click)="change()">Change City</button></p>
+<h3>Child Component</h3>
+<input type="text" #childcomponent (keyup)="onChange(childcomponent.value)" />
+<p>Value from Parent Component: {{pdata}}</p>
+<p>Value from Parent Component: {{parentdata}}</p>
+<div *ngFor="let data of arrList">
+    {{data}}<br>
 </div>
-<!-- <div class="loader">
-    <div class="loading_1">
-
-    </div>
-    <div class="loading_2">
-        Loading...
-    </div>
-</div> -->
-<!-- <div *ngIf="chlidMonthEnum.Mar > 1">
-    {{chlidMonthEnum.Mar}} is a grater than 1
-</div>
-<ng-template [ngIf]="chlidMonthEnum.Mar > 1">
-    Hello Dosto...!
-</ng-template> -->
+<br>
+<br> {{title}} <br><br>
+<button (click)="clickMe()">Change Title</button>

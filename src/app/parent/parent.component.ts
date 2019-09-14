@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ContentChild, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { MessageService } from '../message.service';
+import { ChildComponent } from '../child/child.component';
 
 @Component({
   selector: 'app-parent',
@@ -7,52 +9,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  dropdownList = [];
-  selectedItems = [];
-  dropdownSettings = {};
+  constructor(private msgService: MessageService,
+              private cdref: ChangeDetectorRef) {
+    console.log('Parent Constructor Call');
+   }
+  cData: any;
+  myArr: any = ['Angular 2', 'Angular 4', 'Angular 5', 'Angular 6'];
 
-  constructor() { }
+  @ContentChild(ChildComponent)
+  childComponent: ChildComponent;
+
+  @ViewChild(ChildComponent)
+  childComp: ChildComponent;
 
   ngOnInit() {
-    this.dropdownList = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
-      { "id": 4, "itemName": "Canada" },
-      { "id": 5, "itemName": "South Korea" },
-      { "id": 6, "itemName": "Germany" },
-      { "id": 7, "itemName": "France" },
-      { "id": 8, "itemName": "Russia" },
-      { "id": 9, "itemName": "Italy" },
-      { "id": 10, "itemName": "Sweden" }
-    ];
-    this.selectedItems = [
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
-      { "id": 4, "itemName": "Canada" },
-      { "id": 5, "itemName": "South Korea" }
-    ];
-    this.dropdownSettings = {
-      singleSelection: false,
-      text: "Select Countries",
-      selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
-      enableSearchFilter: true,
-      classes: "myclass custom-class"
-    };
+    let msg;
+    msg = this.msgService.getMsg();
+    console.log('Service Call: ', msg);
+    console.log('Parent ngOnInit Call');
   }
-  onItemSelect(item: any) {
-    console.log(item);
-    console.log(this.selectedItems);
+
+  ngAfterContentInit() {
+    console.log('Parent ngAfterContentInit called');
   }
-  OnItemDeSelect(item: any) {
-    console.log(item);
-    console.log(this.selectedItems);
+
+  ngAfterContentChecked() {
+  //  console.log('ngAfterContentChecked Called');
   }
-  onSelectAll(items: any) {
-    console.log(items);
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit Called');
+    this.cdref.detectChanges();
   }
-  onDeSelectAll(items: any) {
-    console.log(items);
+
+  ngAfterViewChecked() {
+  //  console.log('ngAfterViewChecked Called');
+  }
+
+  addMore() {
+    this.myArr.push('Angular 8');
+  }
+
+  childFun(value: any) {
+    this.cData = value;
   }
 }
