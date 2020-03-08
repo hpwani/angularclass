@@ -1,56 +1,23 @@
-import { Component, OnInit, ContentChild, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { MessageService } from '../message.service';
-import { ChildComponent } from '../child/child.component';
+import { MyServiceService } from '../my-service.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-parent',
   templateUrl: './parent.component.html',
-  styleUrls: ['./parent.component.css']
+  styleUrls: ['./parent.component.css'],
+  providers: [MyServiceService]
 })
 export class ParentComponent implements OnInit {
-
-  constructor(private msgService: MessageService,
-              private cdref: ChangeDetectorRef) {
-    console.log('Parent Constructor Call');
-   }
-  cData: any;
-  myArr: any = ['Angular 2', 'Angular 4', 'Angular 5', 'Angular 6'];
-
-  @ContentChild(ChildComponent)
-  childComponent: ChildComponent;
-
-  @ViewChild(ChildComponent)
-  childComp: ChildComponent;
+  isShow = true;
+  txt: string;
+  constructor(private myService: MyServiceService) {
+  }
 
   ngOnInit() {
-    let msg;
-    msg = this.msgService.getMsg();
-    console.log('Service Call: ', msg);
-    console.log('Parent ngOnInit Call');
+    this.txt = this.myService.myMethod();
   }
 
-  ngAfterContentInit() {
-    console.log('Parent ngAfterContentInit called');
-  }
-
-  ngAfterContentChecked() {
-  //  console.log('ngAfterContentChecked Called');
-  }
-
-  ngAfterViewInit() {
-    console.log('ngAfterViewInit Called');
-    this.cdref.detectChanges();
-  }
-
-  ngAfterViewChecked() {
-  //  console.log('ngAfterViewChecked Called');
-  }
-
-  addMore() {
-    this.myArr.push('Angular 8');
-  }
-
-  childFun(value: any) {
-    this.cData = value;
+  onClick() {
+    this.txt = this.myService.myTestMethod();
   }
 }

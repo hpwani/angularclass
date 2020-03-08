@@ -1,0 +1,17 @@
+<p>
+  bookdetails works!
+</p>
+<ul>
+  <li *ngFor = "let book of allBooks">
+    Id: {{book.id}}, Name: {{book.name}} | 
+    <a [routerLink]="['/bookdetails', book.id]">Show Details</a>
+  </li>
+</ul>
+<h2>SHow Details</h2>
+<ul>
+  <li>ID: {{book.id}}</li>
+  <li>Name: {{book.name}}</li>
+  <li>Price: {{book.price}}</li>
+  <li>Description: {{book.description}}</li>
+</ul>
+<button (click)="goBack()">Back</button>

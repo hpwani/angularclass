@@ -1,0 +1,8 @@
+<p>
+  comp-two works!
+</p>
+<input type="text" [(ngModel)] = "numValue">
+<button (click)="addNewNum(numValue)">Add Num</button><br>
+<span *ngFor="let data of list">
+  {{data}},
+</span>

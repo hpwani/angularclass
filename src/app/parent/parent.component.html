@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <h3>Parent Component</h3>
-<input type="text" #pcomponent (keyup)="0" />
-<p>Value From Child Component: {{cData}}</p>
-<app-child [pdata]="pcomponent.value" (childEvent)="childFun($event)"></app-child>
-<h2>ngOnChanges Example</h2>
-<h3>Parent Component</h3>
-<input type="text" #comp (keyup)="0">
-<app-child [pdata]="comp.value" [arrList]="myArr"></app-child>
-<button (click)="addMore()">Add</button><br><br>
-<input type="text" />
-<ng-content></ng-content>
-<br>
-<app-child></app-child>
+<div appCustomDirective defaultColor="yellow" mouseoverClr="pink" mouseleaveClr="green">
+    <p>Hi I am Hemant. I am Associate UI Developer</p>
+    <p style="color:blue">Hi I am Hemant. I am Associate UI Developer</p>
+</div>
+<h3>Custom Structural Directive</h3>
+<div *appNgIfStructuralDirective='isShow'>
+    <b>Hello, How are you?</b>
+</div>
+<ng-template [appNgIfStructuralDirective]='!isShow'>Hello</ng-template>
+<div>
+    <button (click)="onClick()">Click Me</button>
+    <p>{{txt}}</p>
+</div>

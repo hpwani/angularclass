@@ -7,58 +7,20 @@
         Welcome to {{ title }}!
     </h1>
 </div>
+<nav>
+    <a href="/compone">Component One</a> |
 
-<!-- <div *ngIf=" msg | async as message; else loading">
-    {{message}}
-</div>
-<ng-template #loading>
-    Loading...
-</ng-template> -->
-
-<h2>Dynamic Then and Else Block</h2>
-
-Enter age: <input type="text" #age (keyup)="0">
-<input type="button" value="Change Then Block" (click)="changeThanblock()">
-<input type="button" value="Change Else Block" (click)="changeElseblock()">
-<div *ngIf="age.value> 17; then myThenBlock; else myElseBlock"></div>
-<ng-template #firstthenblock>
-    Hi, I am 18+.
-</ng-template>
-<ng-template #secondthenblock>
-    Hi, I am 20 Years Old.
-</ng-template>
-<ng-template #firstelseblock>
-    Hi, I am below 18.
-</ng-template>
-<ng-template #secondelseblock>
-    Hi, I am just 12 years old.
-</ng-template>
-<br><br>
-<div>
-    {{emp | json}}
-</div>
-<div>
-    <div>
-        num = 146.587945612;
-    </div>
-    {{num | number}} <br> {{num | number : '4.2-4'}} <br> {{0.2 | number : '4.2-5'}} <br>
-    <h2>Currency Pipe</h2>
-    {{num | currency : 'INR' : true : '3.4-10'}} <br> {{num | currency : 'USD' : true : '4.2-5'}}
-    <h2>Chaining Pipe</h2>
-    {{currentDate}} <br> {{currentDate | date}} <br> {{currentDate | date | uppercase}} <br> {{currentDate | date | lowercase }} <br> {{currentDate | date : 'dd/MM/yyyy'}}
-</div>
-<div><br> {{now}} <br> {{cityName | welcome}}<br> Hello, Your city name is <span [outerHTML]='cityName | bold'></span>
-</div>
-
-<h2>@Input() And @Output Examples</h2>
-
-<div>
-    <app-parent>
-        <!-- <app-child></app-child> -->
-    </app-parent>
-</div>
-
-<!-- <div>
-    <app-child></app-child>
-</div> -->
+    <a routerLink="/compone">Component One</a> |
+    <a routerLink="/comptwo">Component Two</a> |
+    <a routerLink="/compparent">Component Parent</a> | 
+    <a routerLink="/student">Student</a> | 
+    <a routerLink="/book">Book Master</a> | 
+    <!-- <a routerLink="/studentdetails">Student Details</a> | 
+    <a routerLink="/studentregestration">Student Registration</a> -->
+</nav><br> <br>
+<input type="text" [(ngModel)]="numValue">
+<button (click)="showComp(numValue)">CLick Me</button><br>
+<!-- <app-child></app-child><br><br>
+<app-comp-one></app-comp-one><br>
+<app-comp-two></app-comp-two> -->
 <router-outlet></router-outlet>
