@@ -15,6 +15,11 @@
     <a routerLink="/compparent">Component Parent</a> | 
     <a routerLink="/student">Student</a> | 
     <a routerLink="/book">Book Master</a> | 
+
+    <a [routerLink]="[{outlets: {routeOne: ['nameRouter']}}]">Component Name Router 1</a> |
+    <a [routerLink]="[{outlets: {routeOne: ['namedRouter', 101]}}]">Component Name Router 2</a> |
+
+
     <!-- <a routerLink="/studentdetails">Student Details</a> | 
     <a routerLink="/studentregestration">Student Registration</a> -->
 </nav><br> <br>
@@ -23,4 +28,12 @@
 <!-- <app-child></app-child><br><br>
 <app-comp-one></app-comp-one><br>
 <app-comp-two></app-comp-two> -->
-<router-outlet></router-outlet>
+<div style="background-color: red;">
+    <router-outlet></router-outlet>
+</div>
+<div style="background-color: blueviolet;">
+    <router-outlet name="routeOne"></router-outlet>
+</div>
+<!-- <div style="background-color: palegreen;">
+    <router-outlet></router-outlet>
+</div> -->

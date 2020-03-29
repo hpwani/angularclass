@@ -22,6 +22,9 @@ const routes: Routes = [
   { path: 'book', component: BookComponent },
   { path: 'bookdetails/:id', component: BookdetailsComponent, canDeactivate: [DeactivatedGuardGuard] },
 
+  { path: 'nameRouter', component: CompOneComponent, outlet: 'routeOne' },
+  { path: 'namedRouter/:id', component: CompOneComponent, outlet: 'routeOne' },
+
   {
     path: 'student',
     children: [
